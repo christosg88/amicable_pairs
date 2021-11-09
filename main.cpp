@@ -25,11 +25,14 @@ uint64_t get_sum_of_factors(uint64_t num) {
 
 int main() {
   std::array<uint64_t, LIMIT + 1> sum_of_factors;
+  std::iota(sum_of_factors.begin(), sum_of_factors.end(), 0);
 
-  std::array<uint64_t, LIMIT + 1> iota;
-  std::iota(iota.begin(), iota.end(), 0);
-
-  std::transform(std::execution::par_unseq, iota.begin(), iota.end(), sum_of_factors.begin(), get_sum_of_factors);
+  std::transform(
+      std::execution::par_unseq,
+      sum_of_factors.begin(),
+      sum_of_factors.end(),
+      sum_of_factors.begin(),
+      get_sum_of_factors);
 
   // in case TBB are not available
   //  for (uint64_t i = 1, end = LIMIT + 1; i < end; ++i) {
