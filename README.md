@@ -56,4 +56,6 @@ A pair of numbers x and y are called *twin* amicable if there not any part of an
 802725 863835 twins!
 879712 901424
 898216 980984
+947835 1125765
+998104 1043096 twins!
 ```
